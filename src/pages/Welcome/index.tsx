@@ -27,7 +27,7 @@ const Welcome: React.FC = () => {
           sempre que precisar.
         </SubTitle>
 
-        <ButtonNext>
+        <ButtonNext activeOpacity={0.7}>
           <ButtonText>{">"}</ButtonText>
         </ButtonNext>
       </Container>

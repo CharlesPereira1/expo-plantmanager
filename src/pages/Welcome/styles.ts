@@ -40,4 +40,6 @@ export const ButtonNext = styled.TouchableOpacity`
   height: 56px;
 `;
 
-export const ButtonText = styled.Text``;
+export const ButtonText = styled.Text`
+  color: ${colors.white};
+  font-size: 24px;
