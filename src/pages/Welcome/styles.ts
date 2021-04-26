@@ -13,9 +13,14 @@ export const Title = styled.Text`
   text-align: center;
   color: ${colors.heading};
   margin-top: 38px;
+  margin-bottom: 50px;
 `;
 
-export const ImgLogo = styled.Image``;
+export const ImgLogo = styled.Image`
+  width: 292px;
+  height: 284px;
+  margin-bottom: 50px;
+`;
 
 export const SubTitle = styled.Text`
   text-align: center;
@@ -26,10 +31,13 @@ export const SubTitle = styled.Text`
 
 export const ButtonNext = styled.TouchableOpacity`
   background: ${colors.green};
+  margin: 0 auto;
   justify-content: center;
   align-items: center;
   border-radius: 16px;
   margin-bottom: 10px;
+  width: 56px;
+  height: 56px;
 `;
 
 export const ButtonText = styled.Text``;

@@ -16,7 +16,9 @@ const Welcome: React.FC = () => {
   return (
     <Container>
       <SafeAreaView>
-        <Title>Gerencie suas pantas de forma fácil</Title>
+        <Title>
+          Gerencie {"\n"} suas pantas {"\n"} de forma fácil
+        </Title>
 
         <ImgLogo source={wateringImg} />
 
