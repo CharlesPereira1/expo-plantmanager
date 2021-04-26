@@ -13,13 +13,13 @@ export const Title = styled.Text`
   text-align: center;
   color: ${colors.heading};
   margin-top: 38px;
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
 `;
 
 export const ImgLogo = styled.Image`
   width: 292px;
   height: 284px;
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
 `;
 
 export const SubTitle = styled.Text`

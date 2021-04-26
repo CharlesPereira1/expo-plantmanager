@@ -14,8 +14,8 @@ import {
 
 const Welcome: React.FC = () => {
   return (
-    <Container>
-      <SafeAreaView>
+    <SafeAreaView>
+      <Container>
         <Title>
           Gerencie {"\n"} suas pantas {"\n"} de forma fácil
         </Title>
@@ -30,8 +30,8 @@ const Welcome: React.FC = () => {
         <ButtonNext>
           <ButtonText>{">"}</ButtonText>
         </ButtonNext>
-      </SafeAreaView>
-    </Container>
+      </Container>
+    </SafeAreaView>
   );
 };
 
