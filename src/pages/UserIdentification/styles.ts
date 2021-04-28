@@ -1,7 +1,11 @@
-import styled from "styled-components/native";
+import styled, { css } from "styled-components/native";
 
 import colors from "../../styles/colors";
 import fonts from "../../styles/fonts";
+
+interface FocusProps {
+  isFocused?: boolean;
+}
 
 export const Container = styled.SafeAreaView`
   flex: 1;
@@ -22,6 +26,11 @@ export const Form = styled.View`
   padding: 0 54px;
 `;
 
+export const Header = styled.View`
+  justify-content: center;
+  align-items: center;
+`;
+
 export const Title = styled.Text`
   font-size: 32px;
   line-height: 36px;
@@ -35,7 +44,7 @@ export const Emoji = styled.Text`
   font-size: 44px;
 `;
 
-export const Input = styled.TextInput`
+export const Input = styled.TextInput<FocusProps>`
   border-bottom-width: 1px;
   border-color: ${colors.gray};
   color: ${colors.heading};
@@ -44,9 +53,16 @@ export const Input = styled.TextInput`
   margin-top: 50px;
   padding: 10px;
   text-align: center;
+
+  ${({ isFocused }) =>
+    isFocused &&
+    css`
+      border-color: ${colors.green};
+    `}
 `;
 
 export const Footer = styled.View`
   margin-top: 40px;
   width: 100%;
+  padding: 0 20px;
 `;
