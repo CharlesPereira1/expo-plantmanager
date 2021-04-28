@@ -1,5 +1,11 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { KeyboardAvoidingView, Platform } from "react-native";
+import React, { useCallback, useState } from "react";
+import {
+  Keyboard,
+  KeyboardAvoidingView,
+  Platform,
+  TouchableWithoutFeedback,
+} from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import Button from "../../components/Button";
 
@@ -19,6 +25,12 @@ const UserIdentification: React.FC = () => {
   const [isFilled, setIsFilled] = useState(false);
   const [name, setName] = useState<string>();
 
+  const navigate = useNavigation();
+
+  const handleStart = () => {
+    navigate.navigate("Confirmation");
+  };
+
   const handleInputblur = useCallback(() => {
     setIsFocused(false);
   }, []);
@@ -32,34 +44,32 @@ const UserIdentification: React.FC = () => {
     setName(value);
   }, []);
 
-  useEffect(() => {
-    console.log("isFilled=", isFilled, "isFocused=", isFocused, "name=", name);
-  }, [isFilled, isFocused, name]);
-
   return (
     <Container>
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
-        <Content>
-          <Form>
-            <Header>
-              <Emoji>{isFilled ? "😄" : "😃"}</Emoji>
-              <Title>Como podemos {"\n"} chamar você?</Title>
-            </Header>
-            <Input
-              isFocused={isFocused || isFilled}
-              placeholder="Digite um nome"
-              onBlur={handleInputblur}
-              onFocus={handleInputFocus}
-              onChangeText={handleInputChange}
-            />
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <Content>
+            <Form>
+              <Header>
+                <Emoji>{isFilled ? "😄" : "😃"}</Emoji>
+                <Title>Como podemos {"\n"} chamar você?</Title>
+              </Header>
+              <Input
+                isFocused={isFocused || isFilled}
+                placeholder="Digite um nome"
+                onBlur={handleInputblur}
+                onFocus={handleInputFocus}
+                onChangeText={handleInputChange}
+              />
 
-            <Footer>
-              <Button title="Confirmar" />
-            </Footer>
-          </Form>
-        </Content>
+              <Footer>
+                <Button title="Confirmar" onPress={handleStart} />
+              </Footer>
+            </Form>
+          </Content>
+        </TouchableWithoutFeedback>
       </KeyboardAvoidingView>
     </Container>
   );
