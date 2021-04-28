@@ -8,6 +8,7 @@ import {
 } from "@expo-google-fonts/jost";
 
 import Welcome from "./src/pages/Welcome";
+import UserIdentification from "./src/pages/UserIdentification";
 
 const App: React.FC = () => {
   const [fontsLoaded] = useFonts({ Jost_400Regular, Jost_600SemiBold });
@@ -16,7 +17,7 @@ const App: React.FC = () => {
     return <AppLoading />;
   }
 
-  return <Welcome />;
+  return <UserIdentification />;
 };
 
 export default App;
