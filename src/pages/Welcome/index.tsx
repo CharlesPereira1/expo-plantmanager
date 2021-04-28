@@ -1,9 +1,10 @@
 import React from "react";
-import { SafeAreaView } from "react-native";
+import { Feather } from "@expo/vector-icons";
 
 import wateringImg from "../../assets/watering.png";
 
 import {
+  ContainerSafeAreaView,
   Container,
   Title,
   ImgLogo,
@@ -14,7 +15,7 @@ import {
 
 const Welcome: React.FC = () => {
   return (
-    <SafeAreaView>
+    <ContainerSafeAreaView>
       <Container>
         <Title>
           Gerencie {"\n"} suas pantas {"\n"} de forma fácil
@@ -28,10 +29,12 @@ const Welcome: React.FC = () => {
         </SubTitle>
 
         <ButtonNext activeOpacity={0.7}>
-          <ButtonText>{">"}</ButtonText>
+          <ButtonText>
+            <Feather name="chevron-right" size={32} />
+          </ButtonText>
         </ButtonNext>
       </Container>
-    </SafeAreaView>
+    </ContainerSafeAreaView>
   );
 };
 
