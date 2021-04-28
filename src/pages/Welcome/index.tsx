@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Dimensions } from "react-native";
+import React from "react";
+import { useNavigation } from "@react-navigation/native";
 import { Feather } from "@expo/vector-icons";
 
 import wateringImg from "../../assets/watering.png";
@@ -14,6 +14,12 @@ import {
 } from "./styles";
 
 const Welcome: React.FC = () => {
+  const navigate = useNavigation();
+
+  const handleStart = () => {
+    navigate.navigate("UserIdentification");
+  };
+
   return (
     <ContainerSafeAreaView>
       <Container>
@@ -28,7 +34,7 @@ const Welcome: React.FC = () => {
           lembrar você sempre que precisar.
         </SubTitle>
 
-        <ButtonNext activeOpacity={0.7}>
+        <ButtonNext activeOpacity={0.7} onPress={handleStart}>
           <Feather name="chevron-right" size={32} color="#fff" />
         </ButtonNext>
       </Container>
