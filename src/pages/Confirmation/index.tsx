@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { View } from "react-native";
 import Button from "../../components/Button";
@@ -5,6 +6,12 @@ import Button from "../../components/Button";
 import { Container, Content, Emoji, Title, SubTitle, Footer } from "./styles";
 
 const Confirmation: React.FC = () => {
+  const navigate = useNavigation();
+
+  const handleStart = () => {
+    navigate.navigate("PlantSelect");
+  };
+
   return (
     <Container>
       <Content>
@@ -16,7 +23,7 @@ const Confirmation: React.FC = () => {
           Agora vamos começar a cuidar das suas plantinhas com muito cuidado.
         </SubTitle>
         <Footer>
-          <Button title="Confirmar" />
+          <Button title="Confirmar" onPress={handleStart} />
         </Footer>
       </Content>
     </Container>
