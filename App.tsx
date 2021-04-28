@@ -13,7 +13,7 @@ const App: React.FC = () => {
   const [fontsLoaded] = useFonts({ Jost_400Regular, Jost_600SemiBold });
 
   if (!fontsLoaded) {
-    <AppLoading />;
+    return <AppLoading />;
   }
 
   return <Welcome />;

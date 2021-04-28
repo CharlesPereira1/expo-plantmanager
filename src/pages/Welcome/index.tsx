@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { Dimensions } from "react-native";
 import { Feather } from "@expo/vector-icons";
 
 import wateringImg from "../../assets/watering.png";
@@ -10,7 +11,6 @@ import {
   ImgLogo,
   SubTitle,
   ButtonNext,
-  ButtonText,
 } from "./styles";
 
 const Welcome: React.FC = () => {
@@ -24,14 +24,12 @@ const Welcome: React.FC = () => {
         <ImgLogo source={wateringImg} />
 
         <SubTitle>
-          Não esqueça mais de regrar suas plantas. Nós cuidamos de lembrar você
-          sempre que precisar.
+          Não esqueça mais de regrar suas {"\n"} plantas. Nós cuidamos de
+          lembrar você sempre que precisar.
         </SubTitle>
 
         <ButtonNext activeOpacity={0.7}>
-          <ButtonText>
-            <Feather name="chevron-right" size={32} />
-          </ButtonText>
+          <Feather name="chevron-right" size={32} color="#fff" />
         </ButtonNext>
       </Container>
     </ContainerSafeAreaView>

@@ -1,6 +1,8 @@
 import styled from "styled-components/native";
+import { Dimensions } from "react-native";
 
 import colors from "../../styles/colors";
+import fonts from "../../styles/fonts";
 
 export const ContainerSafeAreaView = styled.SafeAreaView`
   flex: 1;
@@ -9,7 +11,7 @@ export const ContainerSafeAreaView = styled.SafeAreaView`
 export const Container = styled.View`
   flex: 1;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 `;
 
 export const Title = styled.Text`
@@ -17,17 +19,19 @@ export const Title = styled.Text`
   text-align: center;
   color: ${colors.heading};
   margin-top: 38px;
+  font-family: ${fonts.heading};
+  line-height: 38px;
 `;
 
 export const ImgLogo = styled.Image`
-  width: 292px;
-  height: 284px;
+  height: ${`${Dimensions.get("window").width * 0.7}px`};
 `;
 
 export const SubTitle = styled.Text`
   text-align: center;
   font-size: 18px;
   padding: 0 20px;
+  font-family: ${fonts.text};
   color: ${colors.heading};
 `;
 
