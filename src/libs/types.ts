@@ -2,6 +2,13 @@ export interface EnviromentsProps {
   key: string;
   title: string;
 }
+export interface ConfirmationProps {
+  title: string;
+  subtitle: string;
+  buttonTitle: string;
+  icon: "smile" | "hug";
+  nextScreen: string;
+}
 
 export interface PlantsProps {
   id: string;

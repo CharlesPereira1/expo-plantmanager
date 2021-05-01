@@ -1,29 +1,43 @@
 import React from "react";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 import Button from "../../components/Button";
 
+import { ConfirmationProps } from "../../libs/types";
+
 import { Container, Content, Emoji, Title, SubTitle, Footer } from "./styles";
+
+const emojins = {
+  hug: "🤗",
+  smile: "😄",
+};
 
 const Confirmation: React.FC = () => {
   const navigate = useNavigation();
+  const routes = useRoute();
+
+  const {
+    title,
+    buttonTitle,
+    icon,
+    nextScreen,
+    subtitle,
+  } = routes.params as ConfirmationProps;
 
   const handleStart = () => {
-    navigate.navigate("PlantSelect");
+    navigate.navigate(nextScreen);
   };
 
   return (
     <Container>
       <Content>
-        <Emoji>😄</Emoji>
+        <Emoji>{emojins[icon]}</Emoji>
 
-        <Title>Prontinho</Title>
+        <Title>{title}</Title>
 
-        <SubTitle>
-          Agora vamos começar a cuidar das suas plantinhas com muito cuidado.
-        </SubTitle>
+        <SubTitle>{subtitle}</SubTitle>
         <Footer>
-          <Button title="Confirmar" actived onPress={handleStart} />
+          <Button title={buttonTitle} actived onPress={handleStart} />
         </Footer>
       </Content>
     </Container>

@@ -32,7 +32,14 @@ const UserIdentification: React.FC = () => {
     if (name) {
       await AsyncStorage.setItem("asyncUsers", name);
 
-      navigate.navigate("Confirmation");
+      navigate.navigate("Confirmation", {
+        title: "Prontinho",
+        buttonTitle: "Começar",
+        icon: "smiles",
+        nextScreen: "PlantSelect",
+        subtitle:
+          "Agora vamos começar a cuidar das suas plantinhas com muito cuidade.",
+      });
     }
   };
 
