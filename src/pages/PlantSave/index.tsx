@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { Alert, Platform } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
-import { useRoute } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { isBefore, format } from "date-fns";
 
 import waterdrop from "../../assets/waterdrop.png";
@@ -34,6 +34,8 @@ const PlantSave: React.FC = () => {
   const [showDateTime, setShowDateTime] = useState(Platform.OS === "ios");
 
   const route = useRoute();
+  const navigation = useNavigation();
+
   const { plant } = route.params as Params;
 
   const handleOpenDatePickerForAndroid = useCallback(() => {
@@ -64,6 +66,15 @@ const PlantSave: React.FC = () => {
     await savePlant({
       ...plant,
       dateTimeNotification: selectedDateTime,
+    });
+
+    navigation.navigate("Confirmation", {
+      title: "Tudo certo",
+      buttonTitle: "Começar",
+      icon: "hug",
+      nextScreen: "MyPlants",
+      subtitle:
+        "Fique tranquilo que sempre vamos lembrar você de cuidar das sua plantinha com muito cuidado.",
     });
   }, []);
 

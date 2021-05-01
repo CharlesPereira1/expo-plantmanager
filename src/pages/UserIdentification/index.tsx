@@ -35,7 +35,7 @@ const UserIdentification: React.FC = () => {
       navigate.navigate("Confirmation", {
         title: "Prontinho",
         buttonTitle: "Começar",
-        icon: "smiles",
+        icon: "smile",
         nextScreen: "PlantSelect",
         subtitle:
           "Agora vamos começar a cuidar das suas plantinhas com muito cuidade.",
