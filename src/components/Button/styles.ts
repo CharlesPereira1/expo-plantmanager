@@ -8,17 +8,12 @@ interface Props {
 }
 
 export const Container = styled(TouchableOpacity)<Props>`
-  background-color: #999;
+  background-color: ${({ actived }) => (actived ? colors.green : "#999")};
+
   height: 56px;
   border-radius: 16px;
   justify-content: center;
   align-items: center;
-
-  ${({ actived }) =>
-    actived &&
-    css`
-      background-color: ${colors.green};
-    `}
 `;
 
 export const ButtonText = styled.Text`

@@ -23,7 +23,7 @@ const Confirmation: React.FC = () => {
           Agora vamos começar a cuidar das suas plantinhas com muito cuidado.
         </SubTitle>
         <Footer>
-          <Button title="Confirmar" onPress={handleStart} />
+          <Button title="Confirmar" actived onPress={handleStart} />
         </Footer>
       </Content>
     </Container>
