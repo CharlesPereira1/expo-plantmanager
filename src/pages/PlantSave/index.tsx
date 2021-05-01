@@ -7,7 +7,7 @@ import { isBefore, format } from "date-fns";
 import waterdrop from "../../assets/waterdrop.png";
 import Button from "../../components/Button";
 
-import { PlantsProps } from "../../types";
+import { PlantsProps } from "../../libs/types";
 
 import {
   Container,

@@ -3,7 +3,7 @@ import { ActivityIndicator } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import { plantsEnvironments, plantsService } from "../../services/api";
-import { EnviromentsProps, PlantsProps } from "../../types";
+import { EnviromentsProps, PlantsProps } from "../../libs/types";
 
 import Header from "../../components/Header";
 import EnviromentButton from "../../components/EnviromentButton";

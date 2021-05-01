@@ -3,7 +3,7 @@ import { FlatList } from "react-native";
 
 import colors from "../../styles/colors";
 import fonts from "../../styles/fonts";
-import { EnviromentsProps as EnviProps, PlantsProps } from "../../types";
+import { EnviromentsProps as EnviProps, PlantsProps } from "../../libs/types";
 
 export const Container = styled.View`
   flex: 1;
