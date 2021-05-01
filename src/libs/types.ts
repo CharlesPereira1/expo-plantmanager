@@ -10,6 +10,8 @@ export interface PlantsProps {
   water_tips: string;
   photo: string;
   environments: [string];
+  dateTimeNotification: Date;
+  hour: string;
   frequency: {
     times: number;
     repeat_every: Date;

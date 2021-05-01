@@ -23,6 +23,7 @@ import {
   DatePickerButtonAndroid,
   DatePickerTextAndroid,
 } from "./styles";
+import { loadPlant, savePlant } from "../../libs/storage";
 
 interface Params {
   plant: PlantsProps;
@@ -53,6 +54,17 @@ const PlantSave: React.FC = () => {
     if (dateTime) {
       setSelectedDateTime(dateTime);
     }
+  }, []);
+
+  const handleSave = useCallback(async () => {
+    const data = await loadPlant();
+
+    console.log("loadPlant", data);
+
+    await savePlant({
+      ...plant,
+      dateTimeNotification: selectedDateTime,
+    });
   }, []);
 
   return (
@@ -98,7 +110,7 @@ const PlantSave: React.FC = () => {
           title="Cadastrar planta"
           style={{ width: "100%" }}
           actived
-          onPress={() => {}}
+          onPress={handleSave}
         />
       </Controller>
     </Container>
