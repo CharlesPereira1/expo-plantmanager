@@ -15,6 +15,7 @@ export const PlantInfo = styled.View`
   padding: 50px 30px;
   align-items: center;
   justify-content: center;
+  margin-bottom: 40px;
 `;
 
 export const ImageSVG = styled(SvgFromUri)`
@@ -71,9 +72,21 @@ export const TipText = styled.Text`
 `;
 
 export const AlertLabel = styled.Text`
-  margin: 10px 0;
+  margin: 5px 0;
   font-family: ${fonts.complement};
   font-size: 12px;
   color: ${colors.heading};
   text-align: center;
+`;
+
+export const DatePickerButtonAndroid = styled.TouchableOpacity`
+  width: 100%;
+  align-items: center;
+  padding: 40px 0;
+`;
+
+export const DatePickerTextAndroid = styled.Text`
+  color: ${colors.heading};
+  font-size: 24px;
+  font-family: ${fonts.text};
 `;
