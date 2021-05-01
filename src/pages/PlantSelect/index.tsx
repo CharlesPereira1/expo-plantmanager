@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { ActivityIndicator } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import { plantsEnvironments, plantsService } from "../../services/api";
 import { EnviromentsProps, PlantsProps } from "../../types";
@@ -28,6 +29,12 @@ const PlantSelect: React.FC = () => {
 
   const [page, setPage] = useState(1);
   const [loadingMore, setLoadingMore] = useState(false);
+
+  const navigate = useNavigation();
+
+  const handlePlantSelect = useCallback((item) => {
+    navigate.navigate("PlantSave", { item });
+  }, []);
 
   const handleEnviromentSelected = useCallback(
     (enviroment) => {
@@ -131,7 +138,12 @@ const PlantSelect: React.FC = () => {
         numColumns={2}
         data={filteredPlants}
         keyExtractor={(item) => String(item.id)}
-        renderItem={({ item }) => <PlantCardPrimary data={item} />}
+        renderItem={({ item }) => (
+          <PlantCardPrimary
+            data={item}
+            onPress={() => handlePlantSelect(item)}
+          />
+        )}
         onEndReachedThreshold={0.1}
         onEndReached={({ distanceFromEnd }) => handleFetchMore(distanceFromEnd)}
         ListFooterComponent={
