@@ -5,11 +5,12 @@ import { Container, ButtonText } from "./styles";
 
 interface ButtonProps extends TouchableOpacityProps {
   title: string;
+  actived?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = ({ title, ...rest }) => {
+const Button: React.FC<ButtonProps> = ({ title, actived, ...rest }) => {
   return (
-    <Container {...rest}>
+    <Container {...rest} actived={actived}>
       <ButtonText>{title}</ButtonText>
     </Container>
   );

@@ -28,7 +28,9 @@ const UserIdentification: React.FC = () => {
   const navigate = useNavigation();
 
   const handleStart = () => {
-    navigate.navigate("Confirmation");
+    if (String(name)?.length >= 3) {
+      navigate.navigate("Confirmation");
+    }
   };
 
   const handleInputblur = useCallback(() => {
@@ -53,7 +55,9 @@ const UserIdentification: React.FC = () => {
           <Content>
             <Form>
               <Header>
-                <Emoji>{isFilled ? "😄" : "😃"}</Emoji>
+                <Emoji>
+                  {isFilled && String(name)?.length >= 3 ? "😄" : "😃"}
+                </Emoji>
                 <Title>Como podemos {"\n"} chamar você?</Title>
               </Header>
               <Input
@@ -63,9 +67,13 @@ const UserIdentification: React.FC = () => {
                 onFocus={handleInputFocus}
                 onChangeText={handleInputChange}
               />
-
+              a
               <Footer>
-                <Button title="Confirmar" onPress={handleStart} />
+                <Button
+                  title="Confirmar"
+                  onPress={handleStart}
+                  actived={String(name)?.length >= 3}
+                />
               </Footer>
             </Form>
           </Content>
