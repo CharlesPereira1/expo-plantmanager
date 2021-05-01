@@ -1,11 +1,12 @@
 import React, { useCallback, useState } from "react";
+import { useNavigation } from "@react-navigation/native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
   Keyboard,
   KeyboardAvoidingView,
   Platform,
   TouchableWithoutFeedback,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 
 import Button from "../../components/Button";
 
@@ -27,8 +28,12 @@ const UserIdentification: React.FC = () => {
 
   const navigate = useNavigation();
 
-  const handleStart = () => {
-    if (name) navigate.navigate("Confirmation");
+  const handleStart = async () => {
+    if (name) {
+      await AsyncStorage.setItem("asyncUsers", name);
+
+      navigate.navigate("Confirmation");
+    }
   };
 
   const handleInputblur = useCallback(() => {

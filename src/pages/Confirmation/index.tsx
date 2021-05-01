@@ -1,6 +1,6 @@
-import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+
 import Button from "../../components/Button";
 
 import { Container, Content, Emoji, Title, SubTitle, Footer } from "./styles";
