@@ -8,6 +8,7 @@ import waterdrop from "../../assets/waterdrop.png";
 import Button from "../../components/Button";
 
 import { PlantsProps } from "../../libs/types";
+import { loadPlant, savePlant } from "../../libs/storage";
 
 import {
   Container,
@@ -23,7 +24,6 @@ import {
   DatePickerButtonAndroid,
   DatePickerTextAndroid,
 } from "./styles";
-import { loadPlant, savePlant } from "../../libs/storage";
 
 interface Params {
   plant: PlantsProps;
@@ -70,7 +70,7 @@ const PlantSave: React.FC = () => {
 
     navigation.navigate("Confirmation", {
       title: "Tudo certo",
-      buttonTitle: "Começar",
+      buttonTitle: "Muito obrigado",
       icon: "hug",
       nextScreen: "MyPlants",
       subtitle:
