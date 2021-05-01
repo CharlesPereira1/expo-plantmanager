@@ -115,7 +115,7 @@ const PlantSelect: React.FC = () => {
         showsHorizontalScrollIndicator={false}
         horizontal
         data={enviroments}
-        keyExtractor={(item) => item.key}
+        keyExtractor={(item) => String(item.key)}
         renderItem={({ item }) => (
           <EnviromentButton
             title={item.title}
@@ -130,7 +130,7 @@ const PlantSelect: React.FC = () => {
         showsVerticalScrollIndicator={false}
         numColumns={2}
         data={filteredPlants}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => String(item.id)}
         renderItem={({ item }) => <PlantCardPrimary data={item} />}
         onEndReachedThreshold={0.1}
         onEndReached={({ distanceFromEnd }) => handleFetchMore(distanceFromEnd)}
