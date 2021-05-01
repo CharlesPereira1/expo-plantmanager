@@ -32,8 +32,8 @@ const PlantSelect: React.FC = () => {
 
   const navigate = useNavigation();
 
-  const handlePlantSelect = useCallback((item) => {
-    navigate.navigate("PlantSave", { item });
+  const handlePlantSelect = useCallback((plant) => {
+    navigate.navigate("PlantSave", { plant });
   }, []);
 
   const handleEnviromentSelected = useCallback(

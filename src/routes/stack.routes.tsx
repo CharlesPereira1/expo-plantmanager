@@ -20,7 +20,7 @@ const StackRoutes: React.FC = () => {
         },
       }}
     >
-      {/* <Stack.Screen name="PlantSelect" component={PlantSelect} /> */}
+      {/* <Stack.Screen name="PlantSave" component={PlantSave} /> */}
       <Stack.Screen name="Welcome" component={Welcome} />
       <Stack.Screen name="UserIdentification" component={UserIdentification} />
       <Stack.Screen name="Confirmation" component={Confirmation} />
