@@ -1,5 +1,5 @@
 import React from "react";
-import { RectButtonProps } from "react-native-gesture-handler";
+import { RectButtonProps, Swipeable } from "react-native-gesture-handler";
 import { SvgFromUri } from "react-native-svg";
 
 import {
@@ -21,15 +21,17 @@ interface PlantProps extends RectButtonProps {
 
 const PlantCardSecundary: React.FC<PlantProps> = ({ data, ...rest }) => {
   return (
-    <Container {...rest}>
-      <ImageSVG uri={data.photo} width={50} height={50} />
-      <ButtonTitle>{data.name}</ButtonTitle>
+    <Swipeable>
+      <Container {...rest}>
+        <ImageSVG uri={data.photo} width={50} height={50} />
+        <ButtonTitle>{data.name}</ButtonTitle>
 
-      <Details>
-        <DetailLabel>Regar ás</DetailLabel>
-        <DetailHour>{data.hour}</DetailHour>
-      </Details>
-    </Container>
+        <Details>
+          <DetailLabel>Regar ás</DetailLabel>
+          <DetailHour>{data.hour}</DetailHour>
+        </Details>
+      </Container>
+    </Swipeable>
   );
 };
 

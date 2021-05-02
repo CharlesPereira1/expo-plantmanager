@@ -60,10 +60,6 @@ const PlantSave: React.FC = () => {
   }, []);
 
   const handleSave = useCallback(async () => {
-    // const data = await loadPlant();
-
-    // console.log("loadPlant", data);
-
     await savePlant({
       ...plant,
       dateTimeNotification: selectedDateTime,
