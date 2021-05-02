@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "http://192.168.100.40:3333/",
+  baseURL: "http://192.168.100.44:3333/",
 });
 
 export const plantsEnvironments = () => {
@@ -9,5 +9,5 @@ export const plantsEnvironments = () => {
 };
 
 export const plantsService = (page: number) => {
-  return api.get(`plants?_sort=name&_order=asc&_page=${page}&_limit=7`);
+  return api.get(`plants?_sort=name&_order=asc&_page=${page}&_limit=8`);
 };

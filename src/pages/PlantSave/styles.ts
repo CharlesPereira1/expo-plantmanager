@@ -3,16 +3,17 @@ import { SvgFromUri } from "react-native-svg";
 import colors from "../../styles/colors";
 import { getBottomSpace } from "react-native-iphone-x-helper";
 import fonts from "../../styles/fonts";
+import { Platform } from "react-native";
 
-export const Container = styled.SafeAreaView`
+export const Container = styled.View`
   flex: 1;
   justify-content: center;
   background-color: ${colors.shape};
 `;
 
 export const PlantInfo = styled.View`
-  flex: 1;
-  padding: 50px 30px;
+  /* flex: 1; */
+  padding: 30px;
   align-items: center;
   justify-content: center;
   margin-bottom: 40px;
@@ -39,11 +40,12 @@ export const PlantName = styled.Text`
 `;
 
 export const Controller = styled.View`
-  padding: 20px 20px 0px 20px;
+  padding: 20px 20px 0 20px;
   align-items: center;
   justify-content: center;
-  padding-bottom: ${getBottomSpace() || "20px"};
-  background-color: ${colors.background};
+  padding-bottom: 20px;
+  /* padding-bottom: ${`${getBottomSpace()}px` || "20px"}; */
+  background-color: ${colors.white};
 `;
 
 export const TipController = styled.View`
@@ -51,10 +53,11 @@ export const TipController = styled.View`
   align-items: center;
   justify-content: space-between;
   background-color: ${colors.blueLight};
+
   padding: 20px;
   border-radius: 20px;
   position: relative;
-  bottom: 65px;
+  bottom: 75px;
 `;
 
 export const AvatarPlant = styled.Image`
@@ -68,15 +71,16 @@ export const TipText = styled.Text`
   font-family: ${fonts.text};
   font-size: 17px;
   color: ${colors.blue};
-  text-align: justify;
 `;
 
 export const AlertLabel = styled.Text`
-  margin: 5px 0;
+  /* margin: 5px 0; */
   font-family: ${fonts.complement};
   font-size: 12px;
   color: ${colors.heading};
   text-align: center;
+  position: relative;
+  bottom: 45px;
 `;
 
 export const DatePickerButtonAndroid = styled.TouchableOpacity`

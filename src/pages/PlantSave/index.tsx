@@ -60,9 +60,9 @@ const PlantSave: React.FC = () => {
   }, []);
 
   const handleSave = useCallback(async () => {
-    const data = await loadPlant();
+    // const data = await loadPlant();
 
-    console.log("loadPlant", data);
+    // console.log("loadPlant", data);
 
     await savePlant({
       ...plant,
@@ -96,11 +96,17 @@ const PlantSave: React.FC = () => {
 
             <TipText>{plant.water_tips}</TipText>
           </TipController>
-
-          <AlertLabel>Escolha o melhor ho´rario para ser lembrado:</AlertLabel>
+          <AlertLabel>Escolha o melhor horario para ser lembrado:</AlertLabel>
 
           {showDateTime && (
             <DateTimePicker
+              style={
+                Platform.OS === "ios" && {
+                  width: 320,
+                  height: 150,
+                  backgroundColor: "white",
+                }
+              }
               value={selectedDateTime}
               mode="time"
               display="spinner"

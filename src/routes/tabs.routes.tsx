@@ -1,5 +1,6 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { getBottomSpace } from "react-native-iphone-x-helper";
 import { MaterialIcons } from "@expo/vector-icons";
 
 import colors from "../styles/colors";
@@ -18,7 +19,7 @@ const TabsRoutes: React.FC = () => {
         labelPosition: "beside-icon",
         style: {
           // paddingVertical: 20,
-          height: 65,
+          height: getBottomSpace() + 65,
         },
       }}
     >
