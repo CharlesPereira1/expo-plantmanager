@@ -6,7 +6,7 @@ import Header from "../../components/Header";
 import PlantCardSecundary from "../../components/PlantCardSecundary";
 import Load from "../../components/Load";
 
-import { loadPlant } from "../../libs/storage";
+import { loadPlant, removePlants } from "../../libs/storage";
 import { PlantsProps, StoragePlantProps } from "../../libs/types";
 
 import waterdrop from "../../assets/waterdrop.png";
@@ -34,12 +34,7 @@ const MyPlants: React.FC = () => {
       {
         text: "Sim",
         onPress: async () => {
-          const data = await AsyncStorage.getItem("AsyncPlants");
-          const plants = data ? (JSON.parse(data) as StoragePlantProps) : {};
-
-          delete plants[plant.id];
-
-          await AsyncStorage.setItem("AsyncPlants", JSON.stringify(plants));
+          await removePlants(plant.id);
 
           setMyPlants((oldData) =>
             oldData.filter((item) => item.id !== plant.id)

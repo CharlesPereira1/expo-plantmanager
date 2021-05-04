@@ -39,3 +39,12 @@ export const loadPlant = async (): Promise<PlantsProps[]> => {
 
   return plantsSorted;
 };
+
+export const removePlants = async (id: string): Promise<void> => {
+  const data = await AsyncStorage.getItem("AsyncPlants");
+  const plants = data ? (JSON.parse(data) as StoragePlantProps) : {};
+
+  delete plants[id];
+
+  await AsyncStorage.setItem("AsyncPlants", JSON.stringify(plants));
+};
