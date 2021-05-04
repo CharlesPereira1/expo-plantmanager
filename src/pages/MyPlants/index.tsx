@@ -7,7 +7,7 @@ import PlantCardSecundary from "../../components/PlantCardSecundary";
 import Load from "../../components/Load";
 
 import { loadPlant } from "../../libs/storage";
-import { PlantsProps } from "../../libs/types";
+import { PlantsProps, StoragePlantProps } from "../../libs/types";
 
 import waterdrop from "../../assets/waterdrop.png";
 
@@ -20,11 +20,34 @@ import {
   PlantText,
   PlantList,
 } from "./styles";
+import { Alert } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const MyPlants: React.FC = () => {
   const [myPlants, setMyPlants] = useState<PlantsProps[]>([]);
   const [loading, setLoading] = useState(true);
   const [nextWater, setNextWater] = useState<string>();
+
+  const handleRemove = useCallback((plant) => {
+    Alert.alert("Remover", `Deseja realmente remover a planta ${plant.name}?`, [
+      { text: "Não", style: "cancel" },
+      {
+        text: "Sim",
+        onPress: async () => {
+          const data = await AsyncStorage.getItem("AsyncPlants");
+          const plants = data ? (JSON.parse(data) as StoragePlantProps) : {};
+
+          delete plants[plant.id];
+
+          await AsyncStorage.setItem("AsyncPlants", JSON.stringify(plants));
+
+          setMyPlants((oldData) =>
+            oldData.filter((item) => item.id !== plant.id)
+          );
+        },
+      },
+    ]);
+  }, []);
 
   const loadStorageData = useCallback(async () => {
     const plantsStoraged = await loadPlant();
@@ -67,7 +90,12 @@ const MyPlants: React.FC = () => {
         <PlantList
           data={myPlants}
           keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <PlantCardSecundary data={item} />}
+          renderItem={({ item }) => (
+            <PlantCardSecundary
+              data={item}
+              handleRemove={() => handleRemove(item)}
+            />
+          )}
           showsVerticalScrollIndicator={false}
         />
       </Plants>
