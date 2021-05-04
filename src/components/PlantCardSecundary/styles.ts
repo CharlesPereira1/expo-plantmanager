@@ -5,6 +5,10 @@ import { SvgFromUri } from "react-native-svg";
 import colors from "../../styles/colors";
 import fonts from "../../styles/fonts";
 
+export const ButtonView = styled.View``;
+
+export const ButtonRemove = styled(RectButton)``;
+
 export const Container = styled(RectButton)`
   width: 100%;
   background-color: ${colors.shape};

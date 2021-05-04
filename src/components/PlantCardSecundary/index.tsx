@@ -1,8 +1,10 @@
 import React from "react";
+import { Animated } from "react-native";
 import { RectButtonProps, Swipeable } from "react-native-gesture-handler";
-import { SvgFromUri } from "react-native-svg";
 
 import {
+  ButtonView,
+  ButtonRemove,
   Container,
   ButtonTitle,
   ImageSVG,
@@ -16,12 +18,26 @@ interface PlantProps extends RectButtonProps {
     name?: string;
     photo: string;
     hour: string;
+    handleRemove: () => void;
   };
 }
 
-const PlantCardSecundary: React.FC<PlantProps> = ({ data, ...rest }) => {
+const PlantCardSecundary: React.FC<PlantProps> = ({
+  data,
+  handleRemove,
+  ...rest
+}) => {
   return (
-    <Swipeable>
+    <Swipeable
+      overshootRight={false}
+      renderRightActions={() => (
+        <Animated.View>
+          <ButtonView>
+            <ButtonRemove></ButtonRemove>
+          </ButtonView>
+        </Animated.View>
+      )}
+    >
       <Container {...rest}>
         <ImageSVG uri={data.photo} width={50} height={50} />
         <ButtonTitle>{data.name}</ButtonTitle>
