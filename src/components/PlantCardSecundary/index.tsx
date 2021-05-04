@@ -1,6 +1,9 @@
 import React from "react";
 import { Animated } from "react-native";
 import { RectButtonProps, Swipeable } from "react-native-gesture-handler";
+import { Feather } from "@expo/vector-icons";
+
+import colors from "../../styles/colors";
 
 import {
   ButtonView,
@@ -18,8 +21,8 @@ interface PlantProps extends RectButtonProps {
     name?: string;
     photo: string;
     hour: string;
-    handleRemove: () => void;
   };
+  handleRemove?: () => void;
 }
 
 const PlantCardSecundary: React.FC<PlantProps> = ({
@@ -33,7 +36,9 @@ const PlantCardSecundary: React.FC<PlantProps> = ({
       renderRightActions={() => (
         <Animated.View>
           <ButtonView>
-            <ButtonRemove></ButtonRemove>
+            <ButtonRemove onPress={handleRemove}>
+              <Feather name="trash" size={32} color={colors.white} />
+            </ButtonRemove>
           </ButtonView>
         </Animated.View>
       )}

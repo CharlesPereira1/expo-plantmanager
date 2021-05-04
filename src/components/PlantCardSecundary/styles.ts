@@ -7,7 +7,17 @@ import fonts from "../../styles/fonts";
 
 export const ButtonView = styled.View``;
 
-export const ButtonRemove = styled(RectButton)``;
+export const ButtonRemove = styled(RectButton)`
+  width: 100px;
+  height: 90px;
+  background: ${colors.red};
+  margin-top: 15px;
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  right: 15px;
+`;
 
 export const Container = styled(RectButton)`
   width: 100%;
