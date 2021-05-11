@@ -81,7 +81,7 @@ export const removePlants = async (id: string): Promise<void> => {
   const data = await AsyncStorage.getItem("AsyncPlants");
   const plants = data ? (JSON.parse(data) as StoragePlantProps) : {};
 
-  await Notifications.cancelAllScheduledNotificationsAsync(
+  await Notifications.cancelScheduledNotificationAsync(
     plants[id].notificationId
   );
 
