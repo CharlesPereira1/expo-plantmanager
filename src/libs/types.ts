@@ -28,5 +28,6 @@ export interface PlantsProps {
 export interface StoragePlantProps {
   [id: string]: {
     data: PlantsProps;
+    notificationId: string;
   };
 }

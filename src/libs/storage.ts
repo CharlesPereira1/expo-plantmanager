@@ -20,7 +20,7 @@ export const savePlant = async (plant: PlantsProps): Promise<void> => {
   // }
 
   const seconds = Math.abs(
-    Math.ceil(now.getTime() - nextTime.getTime() / 1000)
+    Math.ceil(now.getTime() - nextTime.getTime()) / 1000
   );
 
   const notificationId = await Notifications.scheduleNotificationAsync({
@@ -80,6 +80,10 @@ export const loadPlant = async (): Promise<PlantsProps[]> => {
 export const removePlants = async (id: string): Promise<void> => {
   const data = await AsyncStorage.getItem("AsyncPlants");
   const plants = data ? (JSON.parse(data) as StoragePlantProps) : {};
+
+  await Notifications.cancelAllScheduledNotificationsAsync(
+    plants[id].notificationId
+  );
 
   delete plants[id];
 
